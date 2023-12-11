@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Inter } from 'next/font/google';
+import { RecoilRoot } from 'recoil';
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -12,8 +12,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <RecoilRoot>
+      <html lang='en'>
+        <body
+          className={`${inter.className} m-11 pr-10 pl-10 bg-background-main`}
+        >
+          {children}
+        </body>
+      </html>
+    </RecoilRoot>
   );
 }
